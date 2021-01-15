@@ -32,7 +32,6 @@
 | name   | string | null: false |
 | price  | integer | null: false |
 | explanation | text | null: false |
-| size | string | null: false |
 | quality | string | null: false |
 | shipping_charge | string | null: false |
 | delivery_date | string | null: false |
@@ -40,7 +39,7 @@
 | area   | string | null: false |
 | user_id | references | null: false,foreign_key: true |
 | category_id | references | null: false,foreign_key: true |
-| brand_id | references | null: false,foreign_key: true |
+
 
 
 ### Association
