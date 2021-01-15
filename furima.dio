@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2021-01-15T09:07:03.973Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="Fz0qWuvcfkR4swNO9K9-" version="13.10.0" type="embed">
+<mxfile host="65bd71144e" modified="2021-01-15T09:07:50.446Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="bqXl0Wruke65OaxzKpCO" version="13.10.0" type="embed">
     <diagram id="x8wb-dTt-gdK0nMvJnMz" name="ページ1">
-        <mxGraphModel dx="0" dy="526" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="233" dy="526" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -47,7 +47,7 @@
                 <mxCell id="62" value="products" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeWidth=1;" parent="1" vertex="1">
                     <mxGeometry x="30" y="440" width="255" height="210" as="geometry"/>
                 </mxCell>
-                <mxCell id="65" value="name&#10;price&#10;explanation&#10;size&#10;quality&#10;shipping_charge&#10;delivery_date&#10;trading_status&#10;area&#10;user_id&#10;category_id&#10;brand_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="62" vertex="1">
+                <mxCell id="65" value="name&#10;price&#10;explanation&#10;size&#10;quality&#10;shipping_charge&#10;delivery_date&#10;trading_status&#10;area&#10;user_id&#10;category_id&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="62" vertex="1">
                     <mxGeometry y="26" width="255" height="184" as="geometry"/>
                 </mxCell>
                 <mxCell id="69" value="categories" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=20;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeWidth=1;" parent="1" vertex="1">
