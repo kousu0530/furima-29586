@@ -30,11 +30,11 @@
 | name   | string | null: false |
 | price  | integer | null: false |
 | explanation | text | null: false |
-| quality | string | null: false |
-| shipping_charge | string | null: false |
-| delivery_date | string | null: false |
-| trading_status | string | null: false |
-| area   | string | null: false |
+| quality_id | integer | null: false |
+| shipping_charge_id | integer | null: false |
+| delivery_date_id | integer | null: false |
+| trading_status_id | integer | null: false |
+| area_id   | integer | null: false |
 | user_id | references | null: false,foreign_key: true |
 | category_id | references | null: false,foreign_key: true |
 
@@ -45,20 +45,11 @@
 - belongs_to: user
 - belongs_to: purchases
 - has_many: comments, dependent: :destroy
-- has_many: images, dependent: :destroy
 - has_many: likes , dependent: :destroy
 - belongs_to: brand
 - belongs_to :category
 
-## categories テーブル
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| name   | string     | null: false                    |
-
-### Association
-
-- has_many: products
 
 ## brands テーブル
 
@@ -74,8 +65,8 @@
 
 | Column	| Type	     |Options                        |
 | comment | text       | null: false                   |
-| user_id | references | null: false,foreign_key: true |
-| product_id | references | null: false,foreign_key: true |
+| user | references | null: false,foreign_key: true |
+| product | references | null: false,foreign_key: true |
 
 ### Association
 
@@ -110,10 +101,15 @@
 
 | Column	| Type	| Options                                  |
 | tell    | string | null: false                             |
-
+| user    | references | null: false, foreign_key: true      |
+| postal_code | string | null: false                         |
+| prefecture | integer | null: false                         |
+| city    | string | null: false                             |
+| address | string | null: false                             |
+| apartment |　string                                        |
 ### Association
 
-- belongs_to: product
+- belongs_to: user
 
 
 
