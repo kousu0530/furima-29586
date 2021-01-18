@@ -33,7 +33,7 @@
 | quality_id | integer | null: false |
 | shipping_charge_id | integer | null: false |
 | delivery_date_id | integer | null: false |
-| prefecture_id | integer | null: false                         |
+| area_id | integer | null: false                         |
 | user | references | null: false,foreign_key: true |
 | category_id | integer | null: false |
 
@@ -42,7 +42,7 @@
 ### Association
 
 - belongs_to: user
-- has_one: purchases
+- has_one: purchase
 
 
 
