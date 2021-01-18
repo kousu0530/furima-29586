@@ -42,7 +42,7 @@
 ### Association
 
 - belongs_to: user
-- belongs_to: purchases
+- belongs_to: has_one
 
 
 
@@ -66,7 +66,7 @@
 
 | Column	| Type	| Options                                  |
 | tell    | string | null: false                             |
-| user    | references | null: false, foreign_key: true      |
+| purchase    | references | null: false, foreign_key: true      |
 | postal_code | string | null: false                         |
 | prefecture | integer | null: false                         |
 | city    | string | null: false                             |
