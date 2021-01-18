@@ -42,7 +42,7 @@
 ### Association
 
 - belongs_to: user
-- belongs_to: has_one
+- has_one: purchases
 
 
 
