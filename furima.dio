@@ -1,4 +1,4 @@
-<mxfile host="65bd71144e" modified="2021-01-18T09:55:14.390Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="SUDwx5lkLKjLWqU0wBrI" version="13.10.0" type="embed">
+<mxfile host="65bd71144e" modified="2021-01-18T11:20:30.631Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="RPSd-s5-5ocxg0xybSmW" version="13.10.0" type="embed">
     <diagram id="x8wb-dTt-gdK0nMvJnMz" name="ページ1">
         <mxGraphModel dx="473" dy="526" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
@@ -34,7 +34,7 @@
                 <mxCell id="148" value="address" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeWidth=1;" parent="1" vertex="1">
                     <mxGeometry x="340" y="585" width="160" height="140" as="geometry"/>
                 </mxCell>
-                <mxCell id="151" value="tell&#10;purchase&#10;postal_code&#10;area_id&#10;city&#10;address&#10;apartment" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="148" vertex="1">
+                <mxCell id="151" value="tell&#10;purchase&#10;postal_code&#10;area_id&#10;city&#10;prefectures&#10;apartment" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="148" vertex="1">
                     <mxGeometry y="26" width="160" height="114" as="geometry"/>
                 </mxCell>
                 <mxCell id="152" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="65" target="151" edge="1">
