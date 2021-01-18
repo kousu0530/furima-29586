@@ -35,7 +35,7 @@
 | delivery_date_id | integer | null: false |
 | area_id   | integer | null: false |
 | user | references | null: false,foreign_key: true |
-| category | references | null: false,foreign_key: true |
+| category_id | integer | null: false |
 
 
 
@@ -50,7 +50,7 @@
 
 
 
-### purchase テーブル
+### purchases テーブル
 
 | Column	| Type	|Options                                   |
 | user	| references	| null: false,foreign_key: true      |
@@ -62,7 +62,7 @@
 - belongs_to: product
 - has_one: address
 
-### address テーブル
+### addresses テーブル
 
 | Column	| Type	| Options                                  |
 | tell    | string | null: false                             |
