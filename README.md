@@ -18,9 +18,8 @@
 ### Association
 
 - has_many: products, dependent: :destroy
-- has_many: comments, dependent: :destroy
 - has_many: purchases, dependent: :destroy
-- has_many: likes, dependent: :destroy
+
 
 
 ## products テーブル
