@@ -33,10 +33,9 @@
 | quality_id | integer | null: false |
 | shipping_charge_id | integer | null: false |
 | delivery_date_id | integer | null: false |
-| trading_status_id | integer | null: false |
 | area_id   | integer | null: false |
-| user_id | references | null: false,foreign_key: true |
-| category_id | references | null: false,foreign_key: true |
+| user | references | null: false,foreign_key: true |
+| category | references | null: false,foreign_key: true |
 
 
 
@@ -44,52 +43,18 @@
 
 - belongs_to: user
 - belongs_to: purchases
-- has_many: comments, dependent: :destroy
-- has_many: likes , dependent: :destroy
-- belongs_to: brand
-- belongs_to :category
 
 
 
-## brands テーブル
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| name    | string     | null: false                    |
 
-### Association
-
-- has_many: products
-
-### comments テーブル
-
-| Column	| Type	     |Options                        |
-| comment | text       | null: false                   |
-| user | references | null: false,foreign_key: true |
-| product | references | null: false,foreign_key: true |
-
-### Association
-
-- belongs_to: user
-- belongs_to: product
-
-### likes テーブル
-
-| Column | Type        |	Options                         |
-| user | references | null: false,foreign_key: true    |
-| product | references | null: false,foreign_key: true |
-
-### Association
-
-- belongs_to: user
-- belongs_to: product
 
 
 ### purchase テーブル
 
 | Column	| Type	|Options                                   |
-| user_id	| references	| null: false,foreign_key: true      |
-| product_id |	references	| null: false,foreign_key: true  |
+| user	| references	| null: false,foreign_key: true      |
+| product |	references	| null: false,foreign_key: true  |
 
 ### Association
 
@@ -109,7 +74,7 @@
 | apartment |　string                                        |
 ### Association
 
-- belongs_to: user
+- belongs_to: purchase
 
 
 
