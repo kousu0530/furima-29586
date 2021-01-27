@@ -1,4 +1,4 @@
-class PurchasesAddress
+#class PurchasesAddress
   include ActiveModel::Model
   attr_accessor :postal_code, :tell, :area, :city, :prefectures, :apartment, :user_id, :product_id
 
