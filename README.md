@@ -70,7 +70,7 @@
 | area_id   | integer | null: false |
 | city    | string | null: false                             |
 | prefectures | string | null: false                             |
-| apartment |　string                                        |
+| apartment | string                                        |
 ### Association
 
 - belongs_to: purchase
