@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          with_options presence: true do
-          validates :nickname,       { message: "is invalid. Input half-width characters." }
+          validates :nickname      
             with_options format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'is invalid. Input full-width characters.' } do
               validates :last_name
               validates :first_name
