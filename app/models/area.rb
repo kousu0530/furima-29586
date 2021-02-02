@@ -20,5 +20,5 @@
 
    include ActiveHash::Associations
    has_many :users
-   has_many :addresses
+  #  has_many :addresses
  end
