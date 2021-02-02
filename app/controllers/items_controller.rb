@@ -6,11 +6,14 @@ class ItemsController < ApplicationController
  
  
 
-   def index
+  def index
+    #@item = Item.find(params[:item_id])
+    # if current_user == @item.user
+    # redirect_to root_path
     # @items = Item.includes(:seller).order("created_at DESC").limit(4)
     # @categories = Category.all
+  #  end
    end
-
    
   # def show
   #   @item = Item.find(params[:id])
@@ -22,7 +25,7 @@ class ItemsController < ApplicationController
    def new
     if user_signed_in?
     @item = Item.new
-    @item.images.new
+    #@item.images.new
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     @category_parent_array.unshift("---")
     else
@@ -32,7 +35,9 @@ class ItemsController < ApplicationController
   end
 
    def create
+    
     @item = Item.new(item_params)
+    
      if @item.valid?
       @item.save
       flash[:notice] = '出品が完了しました'
@@ -94,7 +99,7 @@ class ItemsController < ApplicationController
 
    private
    def item_params
-     params.require(:item).permit(:name,:price, :explanation, :quality_id, :shipping_charge_id, :delivery_date_id, :area_id, :user, :category_id)
+     params.require(:item).permit(:name,:price, :explanation, :quality_id, :shipping_charge_id, :delivery_date_id, :area_id, :user, :category_id,:image).merge(user_id: current_user.id)
    end
 
   #  def set_item
@@ -103,7 +108,7 @@ class ItemsController < ApplicationController
 
    def move_to_index
      unless user_signed_in?
-       redirect_to action: :index
+       redirect_to'/users/sign_in'
      end
    end
-end
+ end
