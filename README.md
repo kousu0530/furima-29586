@@ -49,11 +49,14 @@
 
 
 
-### purchases テーブル
+## purchases テーブル
 
-| Column	| Type	|Options                                   |
+| Column	| Type	| Options                                   |
+| ------ | ------ | -----------------------------------------|
 | user	| references	| null: false,foreign_key: true      |
 | product |	references	| null: false,foreign_key: true  |
+
+
 
 ### Association
 
@@ -61,9 +64,10 @@
 - belongs_to: product
 - has_one: address
 
-### addresses テーブル
+## addresses テーブル
 
 | Column	| Type	| Options                                  |
+| ------ | ------ | -----------------------------------------|
 | tell    | string | null: false                             |
 | purchase    | references | null: false, foreign_key: true      |
 | postal_code | string | null: false                         |
@@ -71,6 +75,8 @@
 | city    | string | null: false                             |
 | prefectures | string | null: false                             |
 | apartment | string                                        |
+
+
 ### Association
 
 - belongs_to: purchase
