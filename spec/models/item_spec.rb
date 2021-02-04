@@ -29,13 +29,13 @@ RSpec.describe Item, type: :model do
       it 'category_idが空では保存できないこと' do
         @item.category_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category can't be blank")
+        expect(@item.errors.full_messages).to include("Category is not a number")
       end
 
       it 'quality_idが空では保存できないこと' do
         @item.quality_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Quality can't be blank")
+        expect(@item.errors.full_messages).to include("Quality is not a number")
       end
 
       it 'priceが空では保存できないこと' do
@@ -47,7 +47,7 @@ RSpec.describe Item, type: :model do
       it 'shipping_charge_idが空では保存できないこと' do
         @item.shipping_charge_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping charge can't be blank")
+        expect(@item.errors.full_messages).to include("Shipping charge is not a number", "Shipping charge is not a number")
       end
 
       it 'area_idが空では保存できないこと' do
@@ -59,7 +59,7 @@ RSpec.describe Item, type: :model do
       it 'delivery_date_idが空では保存できないこと' do
         @item.delivery_date_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery date can't be blank")
+        expect(@item.errors.full_messages).to include("Delivery date is not a number")
       end
 
       it 'imageが空では保存できないこと' do
@@ -92,7 +92,13 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Price is not a number')
        end
 
-      it 'userが紐づいてないと保存できないこと' do
+      it 'priceが半角英数混合では登録できないこと' do
+        @item.price = 'a1b2c3'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price is not a number')
+      end
+ 
+       it 'userが紐づいてないと保存できないこと' do
         @item.user = nil
         @item.valid?
         expect(@item.errors.full_messages).to include('User must exist')
@@ -119,7 +125,7 @@ RSpec.describe Item, type: :model do
       it 'delivery_date_idの値が1だと保存できない' do
         @item.delivery_date_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Delivery date must be other than 1')
+        expect(@item.errors.full_messages).to include("Delivery date must be other than 1")
       end
 
       it 'area_idの値が0だと保存できない' do

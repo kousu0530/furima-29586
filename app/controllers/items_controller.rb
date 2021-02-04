@@ -23,7 +23,6 @@ class ItemsController < ApplicationController
   # end
 
    def new
-    if user_signed_in?
     @item = Item.new
     #@item.images.new
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
