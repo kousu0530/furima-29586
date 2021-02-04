@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
    belongs_to :user
   #  has_one :purchase
-   
+  has_one_attached :image
    
    
    extend ActiveHash::Associations::ActiveRecordExtensions
@@ -11,10 +11,9 @@ class Item < ApplicationRecord
    belongs_to :quality
    belongs_to :shipping_charge
 
-   has_one_attached :image
+ 
 
-  # 空の投稿を保存できないようにする
-  validates :image, :name, :price, :explanation, :quality, :shipping_charge, :delivery_date, :area, :user, :category, presence: true
+  
 
    with_options presence: true do
      validates :name

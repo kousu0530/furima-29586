@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:create, :index] #:show 
+  #before_action :move_to_index, except: [:create, :index] #:show 
   # before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new] #:edit :destroy
+  before_action :authenticate_user!, only: [:new, :create] #:edit :destroy 
 
  
  
@@ -46,7 +46,6 @@ class ItemsController < ApplicationController
       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
       @category_parent_array.unshift("---")
       flash.now[:alert] = '必須項目を入力してください'
-      @item = Item.new(item_params)
       render :new
      end
    end
