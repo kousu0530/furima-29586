@@ -8,12 +8,6 @@ class ItemsController < ApplicationController
 
   def index
   @items = Item.order('created_at DESC')
-    #@item = Item.find(params[:item_id])
-    #if current_user == @item.user
-    #redirect_to root_path
-    #@items = Item.includes(:seller).order("created_at DESC").limit(4)
-    #@categories = Category.all
-   #end
    end
    
   def show
