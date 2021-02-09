@@ -69,4 +69,6 @@ gem 'active_hash'
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 
+gem 'carrierwave'
+gem 'jquery-rails'
 # gem 'payjp'

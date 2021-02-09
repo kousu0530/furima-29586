@@ -1,53 +1,50 @@
 class ItemsController < ApplicationController
   #before_action :move_to_index, except: [:create, :index] #:show 
   # before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create] #:edit :destroy 
+  before_action :authenticate_user!, only: [:new, :create ] 
 
  
  
 
   def index
-    #@item = Item.find(params[:item_id])
-    # if current_user == @item.user
-    # redirect_to root_path
-    # @items = Item.includes(:seller).order("created_at DESC").limit(4)
-    # @categories = Category.all
-  #  end
+  @items = Item.order('created_at DESC')
+  # @Items = Item.all.includes(:user)
    end
    
-  # def show
-  #   @item = Item.find(params[:id])
-  #   @seller = User.find(@item.seller_id)
-  #   @comment = Comment.new
-  #   @items = Item.where(category: @item.category_id).where.not(id: @item.id).order(created_at: :desc).limit(3)
-  # end
+  #def show
+    #@item = Item.find(params[:id])
+    #@seller = User.find(@item.seller_id)
+    #@comment = Comment.new
+    #@comments = @item.comments.includes(:user)
+    #@items = Item.where(category: @item.category_id).where.not(id: @item.id).order(created_at: :desc).limit(3)
+  #end
 
-   def new
+  def new
     @item = Item.new
     #@item.images.new
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     @category_parent_array.unshift("---")
-    else
+    #else
       flash[:alert] = '出品するには、ログインするか新規会員登録をしてください。'
-      redirect_to root_path
-    end
+      # redirect_to root_path
   end
+  
 
-   def create
+    def create
     
-    @item = Item.new(item_params)
+     @item = Item.new(item_params)
     
-     if @item.valid?
-      @item.save
-      flash[:notice] = '出品が完了しました'
-       redirect_to root_path
-     else
-      @category_parent_array = Category.where(ancestry: nil).pluck(:name)
-      @category_parent_array.unshift("---")
-      flash.now[:alert] = '必須項目を入力してください'
-      render :new
-     end
-   end
+      if @item.valid?
+       @item.save
+       flash[:notice] = '出品が完了しました'
+        redirect_to root_path  
+      else
+       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+       @category_parent_array.unshift("---")
+       flash.now[:alert] = '必須項目を入力してください'
+       render :new  
+      end
+    end
 
 
   #  def destroy
@@ -64,9 +61,9 @@ class ItemsController < ApplicationController
   #     end
   #    end
 
-  #  def edit
-  #   edit_category
-  #  end
+   #def edit
+    #edit_category
+   #end
 
    
   # def update
@@ -104,4 +101,8 @@ class ItemsController < ApplicationController
   #    @item = Item.find(params[:id])
   #  end
 
- end
+   
+ 
+
+
+end
