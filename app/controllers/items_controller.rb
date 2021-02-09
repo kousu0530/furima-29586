@@ -20,12 +20,9 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    #@item.images.new
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     @category_parent_array.unshift("---")
-    #else
       flash[:alert] = '出品するには、ログインするか新規会員登録をしてください。'
-      #redirect_to root_path
   end
   
 
@@ -38,8 +35,6 @@ class ItemsController < ApplicationController
        flash[:notice] = '出品が完了しました'
         redirect_to root_path  
       else
-       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
-       @category_parent_array.unshift("---")
        flash.now[:alert] = '必須項目を入力してください'
        render :new  
       end
@@ -51,8 +46,6 @@ class ItemsController < ApplicationController
     #     @item.destroy
     #     redirect_to root_path
     #    else
-    #      @category_parent_array = Category.where(ancestry: nil).pluck(:name)
-    #    @category_parent_array.unshift("---")
     #    flash.now[:alert] = '必須項目を入力してください'
     #    @item = Item.new(item_params)
     #    @item.images.new
