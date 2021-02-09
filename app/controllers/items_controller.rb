@@ -1,22 +1,23 @@
 class ItemsController < ApplicationController
   #before_action :move_to_index, except: [:create, :index] #:show 
   # before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create ,:edit ,:destroy] 
+  before_action :authenticate_user!, only: [:new, :create ] 
 
  
  
 
   def index
   @items = Item.order('created_at DESC')
+  # @Items = Item.all.includes(:user)
    end
    
-  def show
-    @item = Item.find(params[:id])
+  #def show
+    #@item = Item.find(params[:id])
     #@seller = User.find(@item.seller_id)
     #@comment = Comment.new
     #@comments = @item.comments.includes(:user)
     #@items = Item.where(category: @item.category_id).where.not(id: @item.id).order(created_at: :desc).limit(3)
-  end
+  #end
 
   def new
     @item = Item.new
@@ -25,25 +26,25 @@ class ItemsController < ApplicationController
     @category_parent_array.unshift("---")
     #else
       flash[:alert] = '出品するには、ログインするか新規会員登録をしてください。'
-      redirect_to root_path
+      # redirect_to root_path
   end
   
 
-  #  def create
+    def create
     
-  #   @item = Item.new(item_params)
+     @item = Item.new(item_params)
     
-  #    if @item.valid?
-  #     @item.save
-  #     flash[:notice] = '出品が完了しました'
-  #      redirect_to root_path  
-  #    else
-  #     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
-  #     @category_parent_array.unshift("---")
-  #     flash.now[:alert] = '必須項目を入力してください'
-  #     render :new  
-  #    end
-  #  end
+      if @item.valid?
+       @item.save
+       flash[:notice] = '出品が完了しました'
+        redirect_to root_path  
+      else
+       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+       @category_parent_array.unshift("---")
+       flash.now[:alert] = '必須項目を入力してください'
+       render :new  
+      end
+    end
 
 
   #  def destroy
@@ -60,9 +61,9 @@ class ItemsController < ApplicationController
   #     end
   #    end
 
-   def edit
-    edit_category
-   end
+   #def edit
+    #edit_category
+   #end
 
    
   # def update
@@ -96,9 +97,9 @@ class ItemsController < ApplicationController
      params.require(:item).permit(:name,:price, :explanation, :quality_id, :shipping_charge_id, :delivery_date_id, :area_id, :user, :category_id,:image).merge(user_id: current_user.id)
    end
 
-   def set_item
-     @item = Item.find(params[:id])
-   end
+  #  def set_item
+  #    @item = Item.find(params[:id])
+  #  end
 
    
  
