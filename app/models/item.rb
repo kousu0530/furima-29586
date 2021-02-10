@@ -27,4 +27,8 @@ class Item < ApplicationRecord
      validates :area_id,            numericality: { other_than: 0 }
      validates :image
    end
+
+   def was_attached?
+    self.image.attached?
+  end
  end
