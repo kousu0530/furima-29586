@@ -41,17 +41,17 @@ class ItemsController < ApplicationController
     end
 
 
-    # def destroy
-    #   if current_user.id == @item.user.id
-    #     @item.destroy
-    #     redirect_to root_path
-    #    else
-    #    flash.now[:alert] = '必須項目を入力してください'
-    #    @item = Item.new(item_params)
-    #    @item.images.new
-    #     render :show
-    #    end
-    #   end
+     def destroy
+       if current_user.id == @item.user.id
+         @item.destroy
+         redirect_to root_path
+        else
+        flash.now[:alert] = '必須項目を入力してください'
+        @item = Item.new(item_params)
+        @item.images.new
+         render :show
+        end
+       end
 
    def edit
    end
