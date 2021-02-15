@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  before_action :move_to_index, only: [:edit, :update]
    before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create,:edit, :update ] 
 
@@ -54,10 +54,6 @@ class ItemsController < ApplicationController
     #   end
 
    def edit
-      unless current_user.id == @item.user.id
-      redirect_to root_path
-      
-      end
    end
    
     def update
