@@ -61,9 +61,6 @@ class ItemsController < ApplicationController
    end
    
     def update
-      unless current_user.id == @item.user.id
-        redirect_to action: :index
-      end
       if @item.update(item_params)
         flash[:notice] = '更新が完了しました'
         redirect_to root_path
@@ -79,7 +76,10 @@ class ItemsController < ApplicationController
      params.require(:item).permit(:name,:price, :explanation, :quality_id, :shipping_charge_id, :delivery_date_id, :area_id, :user, :category_id,:image).merge(user_id: current_user.id)
    end
 
-   def set_item
+  def set_item
      @item = Item.find(params[:id])
+    unless current_user.id == @item.user.id
+      redirect_to action: :index
    end
+  end
 end
