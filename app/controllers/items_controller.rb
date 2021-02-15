@@ -62,11 +62,11 @@ class ItemsController < ApplicationController
    end
    
     def update
-      if @item.update(item_params)
+      if current_user.id == @item.user.id
+        redirect_to root_path
+       @item.update(item_params)
         flash[:notice] = '更新が完了しました'
         redirect_to action: :index
-       
-          
       else
         #set_item
         #edit_category
