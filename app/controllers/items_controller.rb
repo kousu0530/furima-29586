@@ -53,36 +53,21 @@ class ItemsController < ApplicationController
     #    end
     #   end
 
-   #def edit
+   def edit
+ #  @Item = Item.find(params[:id])
     #edit_category
-   #end
+   # render :edit
+   end
 
    
-  #  def update
-  #    if item_params[:images_attributes].nil?
-  #      flash.now[:alert] = '更新失敗しました。画像を登録してください。'
-  #      edit_category
-  #      render :edit
-  #    else
-  #      exit_ids = []
-  #      item_params[:images_attributes].each do |a,b|
-  #        exit_ids << item_params[:images_attributes].dig(:"#{a}",:id).to_i
-  #     end
-  #     ids = Image.where(item_id: params[:id]).map{|image| image.id }
-  #     delete__db = ids - exit_ids
-  #     Image.where(id:delete__db).destroy_all
-  #     @item.touch
-  #     if @item.update(item_params)
-  #       flash[:notice] = '更新が完了しました'
-  #       redirect_to item_path(@item.id)
-  #     else
-  #       set_item
-  #       edit_category
-  #       flash.now[:alert] = '更新できませんでした。必須項目を入力してください。'
-  #       render :edit
-  #     end
-  #   end
-  #end
+    def update
+      if @item.update(item_params)
+        redirect_to action: :index
+      else
+        render :edit
+      end
+    end
+  
 
    private
    def item_params
@@ -99,6 +84,4 @@ class ItemsController < ApplicationController
       redirect_to action: :index
     end
   end
-
-
 end
