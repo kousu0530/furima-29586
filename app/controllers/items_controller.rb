@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   #before_action :move_to_index, except: [:create, :index] #:show 
    before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create ] 
+  before_action :authenticate_user!, only: [:new, :create,:edit, :update ] 
 
  
  
@@ -54,19 +54,19 @@ class ItemsController < ApplicationController
     #   end
 
    def edit
-      if current_user.id == @item.user.id
+      unless current_user.id == @item.user.id
       redirect_to root_path
-      else
-       render :edit
+      
       end
    end
    
     def update
-      if current_user.id == @item.user.id
-        redirect_to root_path
-       @item.update(item_params)
-        flash[:notice] = '更新が完了しました'
+      unless current_user.id == @item.user.id
         redirect_to action: :index
+      end
+      if @item.update(item_params)
+        flash[:notice] = '更新が完了しました'
+        redirect_to root_path
       else
         #set_item
         #edit_category
@@ -88,7 +88,6 @@ class ItemsController < ApplicationController
    
    def move_to_index
     unless user_signed_in?
-      redirect_to action: :index
     end
   end
 end
