@@ -54,18 +54,21 @@ class ItemsController < ApplicationController
     #   end
 
    def edit
-   @Item = Item.find(params[:id])
-    #edit_category
-    render :edit
+      if current_user.id == @item.user.id
+      redirect_to root_path
+      else
+       render :edit
+      end
    end
-
    
     def update
       if @item.update(item_params)
         flash[:notice] = '更新が完了しました'
         redirect_to action: :index
+       
+          
       else
-        set_item
+        #set_item
         #edit_category
         flash.now[:alert] = '更新できませんでした。必須項目を入力してください。'
         render :edit
