@@ -10,11 +10,11 @@
       <%= image_tag @item.image, class: 'buy-item-img' %>
        <div class='buy-item-right-content'>
         <h2 class='buy-item-text'>
-          <%= @item.item_name %>
+          <%= @item.name %>
         </h2>
         <div class='buy-item-price'>
           <p class='item-price-text'>¥<%= @item.price %></p>
-          < <p class='item-price-sub-text'><%= @item.shipping_cost.name %></p>
+           <p class='item-price-sub-text'><%= @item.shipping_charge.name %></p>
          </div>
       </div> 
     </div>   
@@ -30,8 +30,8 @@
       </p>
     </div>
     <%# /支払額の表示 %>
-
-    <%= form_with model: @order_destination, url: item_orders_path, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+ <%# purchases#createのurl（パス）を指定する %>
+    <%= form_with model: @purchase_address, url: item_purchase_index_path, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
@@ -90,7 +90,7 @@
           <label class="form-text">都道府県</label>
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:prefecture_id, Area.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
+        <%= f.collection_select(:prefectures, Area.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
       </div>
       <div class="form-group">
         <div class='form-text-wrap'>
@@ -104,21 +104,21 @@
           <label class="form-text">番地</label>
           <span class="indispensable">必須</span>
         </div>
-        <%¥= f.text_field :address, class:"input-default", id:"addresses", placeholder:"例）青山1-1-1"%>
+        <%= f.text_field :area_id, class:"input-default", id:"area", placeholder:"例）青山1-1-1"%>
       </div>
       <div class="form-group">
         <div class='form-text-wrap'>
           <label class="form-text">建物名</label>
           <span class="form-any">任意</span>
         </div>
-        <%= f.text_field :building_name, class:"input-default", id:"building", placeholder:"例）柳ビル103"%>
+        <%= f.text_field :apartment, class:"input-default", id:"apartment", placeholder:"例）柳ビル103"%>
       </div>
       <div class="form-group">
         <div class='form-text-wrap'>
           <label class="form-text">電話番号</label>
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_field :phone_number, class:"input-default", id:"phone-number", placeholder:"例）09012345678",maxlength:"11"%>
+        <%= f.text_field :tell, class:"input-default", id:"tell", placeholder:"例）09012345678",maxlength:"11"%>
       </div>
     </div>
     <%# /配送先の入力 %>
