@@ -2,7 +2,7 @@ class PurchaseController < ApplicationController
   
 before_action :authenticate_user!, only: [:index,:create]
 before_action :set_item, only: [:index, :create]
-before_action :move_to_index, only: [:index]
+before_action :move_to_index, only: [:index, :create]
 
 
 def index
@@ -11,8 +11,7 @@ end
 
 def create
   
-  @purchase_address = PurchaseAddress.new(purchase_params)
-  # @purchase.user_id = current_user 
+  @purchase_address = PurchaseAddress.new(purchase_params) 
   if @purchase_address.valid?
       pay_item
       @purchase_address.save

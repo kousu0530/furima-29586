@@ -3,7 +3,11 @@ require 'rails_helper'
 RSpec.describe PurchaseAddress, type: :model do
   describe '購入情報の保存' do
     before do
-      @purchase_address = FactoryBot.build(:purchase_address)
+ 
+      @user = FactoryBot.create(:user)
+      @item = FactoryBot.create(:item)
+      @purchase_address = FactoryBot.build(:purchase_address, user_id: @user.id,item_id:@item.id)
+      sleep(1)
     end
 
     context '商品が購入できる時' do
@@ -71,6 +75,12 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.tell = "123456789012"
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Tell is too long (maximum is 11 characters)")
+      end
+
+      it 'tellが英数混合では保存できないこと' do
+        @purchase_address.tell = "abcdefghijkn"
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Tell is invalid")
       end
 
       it "tokenが空では登録できないこと" do
