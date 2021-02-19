@@ -12,10 +12,7 @@ class ItemsController < ApplicationController
    
   def show
     @item = Item.find(params[:id])
-    #@seller = User.find(@item.seller_id)
-    #@comment = Comment.new
-    #@comments = @item.comments.includes(:user)
-    #@items = Item.where(category: @item.category_id).where.not(id: @item.id).order(created_at: :desc).limit(3)
+   
   end
 
   def new
