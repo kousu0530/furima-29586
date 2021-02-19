@@ -77,6 +77,7 @@
 | apartment | string                                        |
 
 
+
 ### Association
 
 - belongs_to: purchase
