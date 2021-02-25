@@ -82,5 +82,5 @@
 
 - belongs_to: purchase
 
-
+   
 
